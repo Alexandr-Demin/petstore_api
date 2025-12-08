@@ -34,7 +34,7 @@ class APIClient:
         :return: Объект Response с данными ответа.
 
         """
-        return self.post(url, json=json, data=data, files=files)
+        return self.client.post(url, json=json, data=data, files=files)
     
     def put(self, url: URL | str, json: Any | None=None) -> Response:
         """

@@ -10,8 +10,8 @@ class HTTPClientConfig(BaseModel):
     def client_url(self) -> str:
         return str(self.url)
 
-class TestData(BaseModel):
-    image_png_file: FilePath
+# class TestData(BaseModel):
+#     image_png_file: FilePath
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -22,7 +22,7 @@ class Settings(BaseSettings):
         
     )
     http_client: HTTPClientConfig
-    test_data: TestData
+    # test_data: TestData
     allure_results_dir: DirectoryPath
 
     @classmethod
