@@ -1,7 +1,7 @@
 from httpx import Response
 from clients.api_client import APIClient
 from clients.public_https_builder import get_public_https_client
-from clients.users.user_schema import CreateUserRequestSchema, UpdateUserRequestSchema
+from clients.users.user_schema import CreateUserRequestSchema, CreateUserResponseSchema, UpdateUserRequestSchema
 from tools.routes import APIRoutes
 
 
@@ -45,6 +45,10 @@ class UserClient(APIClient):
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
         return self.delete(f'{APIRoutes.USER}/{username}')
+    
+    def create_user(self, request: CreateUserRequestSchema) -> CreateUserResponseSchema:
+        response = self.create_user_api(request)
+        return CreateUserResponseSchema.model_validate_json(response.text)
     
 def get_publick_users_client() -> UserClient:
     """
