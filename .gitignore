@@ -15,5 +15,3 @@ coverage-results
 coverage-report.json
 coverage-history.json
 
-# Ai review
-.ai-review.yaml
