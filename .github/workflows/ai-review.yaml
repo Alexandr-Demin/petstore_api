@@ -42,6 +42,5 @@ jobs:
           PROMPT__CONTEXT_PROMPT_FILES: '["./prompts/inline.md"]'
           PROMPT__SUMMARY_PROMPT_FILES: '["./prompts/summary.md"]'
 
-        with:
-          review-command: ${{ inputs.review-command }}
+        
 
