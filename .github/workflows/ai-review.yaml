@@ -24,7 +24,7 @@ jobs:
         env:
           
           LLM__PROVIDER: "GEMINI"
-          LLM__META__MODEL: "gemini-2.0-pro"
+          LLM__META__MODEL: "gemini-2.5-flash-lite"
           LLM__META__MAX_TOKENS: "15000"
           LLM__META__TEMPERATURE: "0.3"
           LLM__HTTP_CLIENT__API_URL: "https://generativelanguage.googleapis.com"
