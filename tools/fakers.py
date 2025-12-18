@@ -1,4 +1,15 @@
+from enum import Enum
+import random
 from faker import Faker
+
+
+class PetStatus(str, Enum):
+    """
+    Список статусов питомца.
+    """
+    AVAILABLE = "available"
+    PENDING = "pending"
+    SOLD = "sold"
 
 class Fake:
     """
@@ -78,5 +89,37 @@ class Fake:
         """
         return self.faker.random_int(start, end)
     
+    def pet_status(self) -> str:
+        """
+        Генерирует случайный статус питомца.
+        
+        :return: Случайный статус из PetStatus.
+        """
+        return random.choice(list(PetStatus)).value
+    
+    def pet_name(self) -> str:
+        """
+        Генерирует случайную кличку питомца.
+        
+        :return: Случайную кличку питомца.
+        """
+        return self.faker.first_name()
+    
+    def sentence(self) ->str:
+        """
+        Генерирует случайное предложение.
+
+        :return: Случайное предложение.
+        """
+        return self.faker.sentence()
+    
+    def image_url(self):
+        """
+        Генерирует случайную ссылку на фото.
+
+        :return: Случайную ссылку.
+        """
+        return self.faker.image_url()
+        
 fake = Fake(faker=Faker())
     
