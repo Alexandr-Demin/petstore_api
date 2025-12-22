@@ -1,10 +1,11 @@
-from typing import Self
+from typing import Optional, Self
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import BaseModel, HttpUrl, FilePath, DirectoryPath
 
 class HTTPClientConfig(BaseModel):
     url: HttpUrl
     timeout: float
+    headers: Optional[dict] = None
 
     @property
     def client_url(self) -> str:
